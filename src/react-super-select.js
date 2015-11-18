@@ -866,7 +866,10 @@ var ReactSuperSelect = React.createClass({
   _handleSearch: function(event) {
     this._arrestEvent(event);
     var searchString = event.target.value;
-    this._handleSearchDebounced.call(this, searchString);
+    this.setState({
+      searchString: searchString
+    });
+    // this._handleSearchDebounced.call(this, searchString);
   },
 
   _closeDropdow: function(event) {
@@ -883,7 +886,7 @@ var ReactSuperSelect = React.createClass({
     this.setState({
       searchString: search
     });
-  }, 300),
+  }, 50),
 
   // return the boolean used to determine whether an option should have the 'r-ss-selected' class
   _isCurrentlySelected: function(dataItem) {
