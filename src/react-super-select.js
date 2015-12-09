@@ -874,7 +874,9 @@ var ReactSuperSelect = React.createClass({
 
   _closeDropdow: function(event) {
     if(this.state.isOpen && !event.target.isSameNode(this.refs.triggerDiv) 
-      && !event.target.isSameNode(this.refs.searchInput)) {
+      && !event.target.isSameNode(this.refs.searchInput) 
+      && !event.target.isSameNode(this.refs.searchInput) 
+      && !event.target.parentNode.isSameNode(this.refs.triggerDiv)) {
       this.setState({
         'isOpen': !this.state.isOpen,
       });
